@@ -1,0 +1,43 @@
+{
+  "coin": {
+    "name": "Nimiq",
+    "shortcut": "NIM",
+    "label": "Nimiq",
+    "alias": "nimiq"
+  },
+  "ports": {
+    "backend_rpc": 8053,
+    "backend_message_queue": 0,
+    "blockbook_internal": 9053,
+    "blockbook_public": 9153
+  },
+  "ipc": {
+    "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
+    "rpc_timeout": 25
+  },
+  "backend": {
+    "package_name": "backend-nimiq",
+    "package_revision": "satoshilabs-1",
+    "system_user": "nimiq",
+    "version": "1.4.3"
+  },
+  "blockbook": {
+    "package_name": "blockbook-nimiq",
+    "system_user": "blockbook-nimiq",
+    "internal_binding_template": ":{{.Ports.BlockbookInternal}}",
+    "public_binding_template": ":{{.Ports.BlockbookPublic}}",
+    "explorer_url": "",
+    "additional_params": "",
+    "block_chain": {
+      "parse": true,
+      "mempool_workers": 8,
+      "mempool_sub_workers": 2,
+      "block_addresses_to_keep": 300,
+      "additional_params": {}
+    }
+  },
+  "meta": {
+    "package_maintainer": "Richard Patel",
+    "package_maintainer_email": "hello@terorie.dev"
+  }
+}
